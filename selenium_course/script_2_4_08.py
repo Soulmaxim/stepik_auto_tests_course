@@ -34,6 +34,6 @@ try:
     submit_button.click()
 
 finally:
-    time.sleep(10)
+    time.sleep(7)
     browser.quit()
 
