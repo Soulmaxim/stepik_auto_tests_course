@@ -8,27 +8,27 @@ link = "http://selenium1py.pythonanywhere.com/"
 
 
 @pytest.fixture(scope="class")
-def wut():
+def browser_fixture():
     print("\nstart browser for test..")
-    wuta = webdriver.Chrome()
-    yield wuta
+    browser = webdriver.Chrome()
+    yield browser
     print("\nquit browser..")
-    wuta.quit()
+    browser.quit()
 
 
 class TestMainPage1():
 
     # вызываем фикстуру в тесте, передав ее как параметр
-    def test_guest_should_see_login_link(self, wut):
+    def test_guest_should_see_login_link(self, browser_fixture):
         print("start test1")
-        wut.get(link)
-        time.sleep(5)
-        wut.find_element(By.CSS_SELECTOR, "#login_link")
+        browser_fixture.get(link)
+        time.sleep(3)
+        browser_fixture.find_element(By.CSS_SELECTOR, "#login_link")
         print("finish test1")
 
-    def test_guest_should_see_basket_link_on_the_main_page(self, wut):
+    def test_guest_should_see_basket_link_on_the_main_page(self, browser_fixture):
         print("start test2")
-        wut.get(link)
-        time.sleep(5)
-        wut.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
+        browser_fixture.get(link)
+        time.sleep(3)
+        browser_fixture.find_element(By.CSS_SELECTOR, ".basket-mini .btn-group > a")
         print("finish test2")
