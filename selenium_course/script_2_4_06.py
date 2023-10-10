@@ -2,7 +2,6 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import time
 
-
 try:
     link = 'http://suninjuly.github.io/cats.html?'
     browser = webdriver.Chrome()
@@ -13,4 +12,3 @@ try:
 finally:
     time.sleep(6)
     browser.quit()
-
